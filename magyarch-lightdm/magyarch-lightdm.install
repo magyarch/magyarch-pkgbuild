@@ -1,0 +1,9 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+    echo "test"
+    cp /etc/lightdm/mal-lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+    # rm -rf /usr/magyarch-qtile
+}

@@ -1,0 +1,38 @@
+# MagyArch Linux <https://magyarchlinux.org>
+
+pkgname=magyarch-lightdm
+pkgver=0.1
+pkgrel=1
+pkgdesc="MagyArch Linux lightdm."
+arch=('any')
+url="https://github.com/magyarchlinux/magyarch_xfce4"
+license=('GPL-3')
+makedepends=('git')
+depends=(
+    'lightdm' 'lightdm-gtk-greeter-settings' 'lightdm-gtk-greeter'
+)
+source=(${pkgname}::"git+https://github.com/magyarchlinux/magyarch_xfce4")
+sha256sums=('SKIP')
+install=magyarch-lightdm.install
+
+package() {
+    cd "${srcdir}/${pkgname}"
+    rm -rf .git LICENSE README.md
+    # install -d "${pkgdir}/usr/share/${pkgname}"
+    install -d "${pkgdir}/etc/lightdm"
+    install -d "${pkgdir}/usr/share/backgrounds/magyarch"
+    install -d "${pkgdir}/usr/share/themes/MagyArch-dark"
+    cp "etc/lightdm/lightdm-gtk-greeter.conf" "${pkgdir}/etc/lightdm/mal-lightdm-gtk-greeter.conf"
+    cp -rf "usr/share/themes/MagyArch-dark" "${pkgdir}/usr/share/themes"
+    # cp -rfT "${srcdir}/${pkgname}" "${pkgdir}/usr/share/${pkgname}"
+    # install -m644 ${srcdir}/${pkgname}/* ${pkgdir}/tmp/${pkgname}/etc/skel
+    # rm -rf "${pkgdir}/etc/skel"
+    # install -d "${pkgdir}/usr/share/backgrounds/${pkgname}"
+    install -m644 usr/share/backgrounds/magyarch/* "${pkgdir}/usr/share/backgrounds/magyarch"
+    # install -m644 ${srcdir}/${pkgname}/usr/share/backgrounds/magyarch/* "${pkgdir}/usr/share/backgrounds/magyarch"
+    # cd "${srcdir}/${pkgname}"
+    # install -d "${pkgdir}/usr/share/licenses/${pkgname}"
+    # install -m644 ${srcdir}/${pkgname}/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}"
+    # cd "../.."
+    # rm -r "${pkgname}"
+}
