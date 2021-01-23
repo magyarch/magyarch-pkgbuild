@@ -1,1 +1,1 @@
-magyarch-pkgbuild
+magyarch-pkgbuild a
