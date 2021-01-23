@@ -1,0 +1,20 @@
+# MagyArch Linux <https://magyarchlinux.org>
+
+pkgname=magyarch_xmonad_pacman_hook
+pkgver=0.1
+pkgrel=1
+pkgdesc="MagyArch Linux xmonad pacman hook."
+arch=('any')
+url="https://magyarchlinux.org"
+license=('GPL-3')
+# makedepends=('git')
+# source=(${pkgname}::"git+https://github.com/bazeeel/baz-bspwm")
+
+source=('recompile-xmonad.hook' 'recompile-xmonadh.hook')
+sha256sums=('SKIP')
+
+
+package() {
+    install -Dm 644 recompile-xmonad.hook "${pkgdir}/etc/pacman.d/hooks/recompile-xmonad.hook"
+    install -Dm 644 recompile-xmonadh.hook "${pkgdir}/etc/pacman.d/hooks/recompile-xmonadh.hook"
+}
