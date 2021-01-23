@@ -1,0 +1,21 @@
+# MagyArch Linux <https://magyarchlinux.org>
+
+pkgname=magyarch-wallpapers
+pkgver=0.1
+pkgrel=1
+pkgdesc="MagyArch Linux Wallpapers."
+arch=('any')
+url="https://magyarchlinux.org"
+license=('GPL-3')
+makedepends=('git')
+source=(${pkgname}::"git+https://github.com/bazeeel/baz-bspwm")
+sha256sums=('SKIP')
+
+workdir=$PWD
+package() {
+    cd "${srcdir}/${pkgname}/.local/bin/wallpapers/Future"
+    install -d "${pkgdir}/usr/share/backgrounds/${pkgname}"
+    install -m644 ${srcdir}/${pkgname}/.local/bin/wallpapers/Future/*.jpg "${pkgdir}/usr/share/backgrounds/${pkgname}"
+    cd "$workdir"
+     rm -r "${pkgname}"
+}
