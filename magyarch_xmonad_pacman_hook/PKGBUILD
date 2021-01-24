@@ -8,11 +8,12 @@ arch=('any')
 url="https://magyarchlinux.org"
 license=('GPL-3')
 
-source=('recompile-xmonad.hook' 'recompile-xmonadh.hook')
+# source=('recompile-xmonad.hook' 'recompile-xmonadh.hook')
+source=('recompile-xmonad.hook')
 sha256sums=('SKIP')
 
 
 package() {
     install -Dm 644 recompile-xmonad.hook "${pkgdir}/etc/pacman.d/hooks/recompile-xmonad.hook"
-    install -Dm 644 recompile-xmonadh.hook "${pkgdir}/etc/pacman.d/hooks/recompile-xmonadh.hook"
+    # install -Dm 644 recompile-xmonadh.hook "${pkgdir}/etc/pacman.d/hooks/recompile-xmonadh.hook"
 }
