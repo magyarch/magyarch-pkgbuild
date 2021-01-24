@@ -7,8 +7,6 @@ pkgdesc="MagyArch Linux xmonad pacman hook."
 arch=('any')
 url="https://magyarchlinux.org"
 license=('GPL-3')
-# makedepends=('git')
-# source=(${pkgname}::"git+https://github.com/bazeeel/baz-bspwm")
 
 source=('recompile-xmonad.hook' 'recompile-xmonadh.hook')
 sha256sums=('SKIP')
